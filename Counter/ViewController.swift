@@ -16,7 +16,7 @@ class ViewController: UIViewController {
     }
 
     @IBAction func plusButtonPressed(_ sender: Any) {
-        counter.text = String(Int(counter.text ?? "0")! + 1)
+        counter.text = String(Int(counter.text!)! + 1)
         logs.text += "\(Date().dateTimeString): значение изменено на +1\n"
     }
     
@@ -25,7 +25,7 @@ class ViewController: UIViewController {
             logs.text += "\(Date().dateTimeString): попытка уменьшить значение счетчика ниже 0\n"
             return
         }
-        counter.text = String(Int(counter.text ?? "0")! - 1)
+        counter.text = String(Int(counter.text!)! - 1)
         logs.text += "\(Date().dateTimeString): значение изменено на -1\n"
     }
     
