@@ -1,37 +1,41 @@
 import UIKit
 
-class ViewController: UIViewController {
-    @IBOutlet weak var logs: UITextView!
-    @IBOutlet weak var plusButton: UIButton!
-    @IBOutlet weak var minusButton: UIButton!
-    @IBOutlet weak var clearButton: UIButton!
-    @IBOutlet weak var counter: UILabel!
+final class ViewController: UIViewController {
+    @IBOutlet weak private var logsTextView: UITextView!
+    @IBOutlet weak private var plusButton: UIButton!
+    @IBOutlet weak private var minusButton: UIButton!
+    @IBOutlet weak private var clearButton: UIButton!
+    @IBOutlet weak private var         counterLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        logs.text = "История изменений:\n"
-        logs.isScrollEnabled = true
-        logs.isEditable = false
-        counter.text = "0"
-    }
-
-    @IBAction func plusButtonPressed(_ sender: Any) {
-        counter.text = String(Int(counter.text!)! + 1)
-        logs.text += "\(Date().dateTimeString): значение изменено на +1\n"
+        setUpView()
     }
     
-    @IBAction func minusButtonPressed(_ sender: Any) {
-        if counter.text == "0" {
-            logs.text += "\(Date().dateTimeString): попытка уменьшить значение счетчика ниже 0\n"
+    private func setUpView() {
+        logsTextView.text = "История изменений:\n"
+        logsTextView.isScrollEnabled = true
+        logsTextView.isEditable = false
+                counterLabel.text = "0"
+    }
+    
+    @IBAction private func plusButtonPressed(_ sender: Any) {
+                counterLabel.text = String(Int(        counterLabel.text!)! + 1)
+        logsTextView.text += "\(Date().dateTimeString): значение изменено на +1\n"
+    }
+    
+    @IBAction private func minusButtonPressed(_ sender: Any) {
+        if         counterLabel.text == "0" {
+            logsTextView.text += "\(Date().dateTimeString): попытка уменьшить значение счетчика ниже 0\n"
             return
         }
-        counter.text = String(Int(counter.text!)! - 1)
-        logs.text += "\(Date().dateTimeString): значение изменено на -1\n"
+                counterLabel.text = String(Int(        counterLabel.text!)! - 1)
+        logsTextView.text += "\(Date().dateTimeString): значение изменено на -1\n"
     }
     
-    @IBAction func clearButtonPressed(_ sender: Any) {
-        counter.text = "0"
-        logs.text += "\(Date().dateTimeString): значение сброшено\n"
+    @IBAction private func clearButtonPressed(_ sender: Any) {
+                counterLabel.text = "0"
+        logsTextView.text += "\(Date().dateTimeString): значение сброшено\n"
     }
 }
 

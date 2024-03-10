@@ -71,9 +71,11 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <connections>
+                        <outlet destination="9g6-Iu-d2L" id="CFR-Oh-I6d">
+                            <string key="property">		counterLabel</string>
+                        </outlet>
                         <outlet property="clearButton" destination="ev1-eK-GPN" id="ZKO-5O-FQd"/>
-                        <outlet property="counter" destination="9g6-Iu-d2L" id="CFR-Oh-I6d"/>
-                        <outlet property="logs" destination="Dtf-j0-mGO" id="p7l-ET-FeQ"/>
+                        <outlet property="logsTextView" destination="Dtf-j0-mGO" id="p7l-ET-FeQ"/>
                         <outlet property="minusButton" destination="G0C-gu-iax" id="fFZ-k6-Jlh"/>
                         <outlet property="plusButton" destination="dnM-C7-bkf" id="1HA-m3-02H"/>
                     </connections>
